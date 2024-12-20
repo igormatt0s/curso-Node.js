@@ -1,0 +1,58 @@
+Utilizando o pacote Chalk
+    - npm uninstall chalk
+    - npm install chalk@4.1.2
+Módulos
+    - São scripts reaproveitáveis dividos em três categorias:
+	    - Internos: módulos que nós desenvolvemos
+	    - Core Modules: módulos que vem com o Node.js
+	    - Externos: módulos que instalamos via npm
+Módulos internos
+    - São criados nas pastas do nosso projeto
+    - Necessário exportar o módulo (module.exports)
+    - Necessário importar onde precisamos utilizar (require)
+Export e Import
+    - É possível com o Node.js utilizar o export e import do ES6
+    - Funcionalidades mais modernas e com mais recursos
+    - Modifique a extensão dos arquivos para .mjs
+    - Exporte com o export deafult
+    - Importe com o import
+Core Modules
+    - São os que vêm prontos para serem utilizados
+    - Necessário importar para o utilizar no projeto
+Ler argumentos
+    - Node permite o envio de argumentos via command line
+    - Os argumentos ficam num array: process.argv
+    - Podemos fazer um loop e resgatar os valores enviados
+Módulos externos
+    - Podem ser instalados via npm
+    - Necessário inicializar o npm no projeto: npm init
+    - Os módulos serão salvos na pasta node_modules
+    - Pode-se instalar módulos com o npm install <nome>
+Melhorando a visualização
+    - Módulo externo chamado chalk que deixa a visualização do console mais agradável, podendo ter u feedback com base em cores
+    - npm init
+    - npm install chalk@4.1.0
+Lendo entrada de dados
+    - Core Module readline
+    - Utiliza-se o método question
+    - Depois a resposta é processada e retornada
+Melhorando a leitura de dados
+    - Módulo externo inquirer
+    - Mais completo para resgatar e lidar com o input
+    - Baseado em Promises
+    - npm init
+    - npm install inquirer@8.1.2
+Event Loop
+    - Recurso da arquitetura do Node que evita problemas de concorrência na execução do código
+    - Necessário cuidar com bloqueios no fluxo, como loops infinitos
+Event Emitter
+    - Se comporta como os eventos do navegador
+    - Pode-se ativar um código em alguns pontos da aplicação
+    - Core Module chamado events
+    - Pode-se instanciar a classe EventEmitter
+Síncrono e Assíncrono
+    - sync: código espera ser totalmente executado para prosseguir
+    - async: código continua progredindo e em um ponto futuro obtém a resposta da execução assíncrona
+Erros no Node
+    - throw: uma forma de encerrar um programa, gerando um novo erro
+    - try catch: uma forma de evidenciar algo que deu errado em um bloco de código e exibir a mensagem de erro

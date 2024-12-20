@@ -1,0 +1,46 @@
+Express
+	- É um framework para Node.js que serve para criação de aplicações Web
+	- Pode-se criar rotas, renderizar HTML, conectar a um banco de dados
+	- npm init e depois npm install express
+O que são Rotas?
+	- São URLs que acessamos: www.nossosite.com/produtos
+	- Quando o usuário acessa podemos acessar várias lógicas, como carregar produtos do banco de dados
+	- Ou seja, rotas são uma ponte entre o usuário e a lógica da aplicação
+Primeiros passos
+	- Importar o Express e invocá-lo
+	- Definir uma porta base para a aplicação
+	- Criar uma rota (URL que será acessada)
+	- Executar o método listen na porta especificada
+	- node index.js
+Renderizando HTML no navegador
+	- Para enviar HTML como resposta utiliza-se o método sendFile
+	- Precisa-se acessar o arquivo por meio do diretório base (módulo path)
+Módulo Nodemon
+	- Serve para resolver o problema de atualização, quando é necessárioreiniciar o servidor toda vez para atualizar
+	- Com o módulo, o projeto é reiniciado toda vezque o arquivo é salvo
+	- O módulo Nodemon vai ser salvo como dependência de desenvolvimento (npm install --save-dev nodemon)
+	- No package.json a gente adiciona o caminho do index.js, o servidor (localhost) e a porta:
+	"scripts": {
+    		"test": "echo \"Error: no test specified\" && exit 1",
+    		"start": "nodemon ./index.js localhost 3000"
+  	},
+	- Para rodar: npm run start ou npm start
+Middlewares
+	- São códigos que podem ser executados no meio/entre de alguma ação e outra
+	- Por exemplo: verificar se usuário está logado
+	- Para utilizar middlewares o método no Express é o use
+Parâmetros por URL
+	- Pode-se resgatar os parâmetros da URL por meio do req: req.params.<nome da URL>
+	- Se tivesse buscando o usuário no banco de dados pelo id fica nessa forma: /users/:id
+Enviando dados por POST
+	- Para enviar os dados precisa-se criar um form e mandar os dados via POST para alguma URL
+	- No Express, precisa-se colocar alguns middlewares como o express.json para ler os dados do body e também uma rota que vai receber estes dados, utilizando o método post do Express
+Módulo de rotas
+	- Pode-se unir várias rotas em um módulo que fica em uma pasta ou arquivo
+	- Utiliza-se um novo objeto chamado Router e coloca as rotas nele, depois exporta-o e importa no arquivo principal
+Colocando CSS com Express
+	- Para inserir CSS nas páginas e arquivos estáticos precisa-se do middleware express.static
+	- Precisa-se colocar um diretório base, que normalmente é o public e criar os estáticos a partir desta pasta
+	- No HTML, pode-se acessar o caminho relativo após a pasta definida
+Criando uma página 404
+	- Para criar uma página quando o usuário acessa uma página que não existe, adiciona um novo middleware abaixo de todas as rotas, que responde com este status e envia um arquivo de template referente a esta página

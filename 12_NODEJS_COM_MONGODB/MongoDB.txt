@@ -1,0 +1,83 @@
+O que é NoSQL?
+    - São bancos de dados focados em documentos (documents);
+    - A modelagem de dados com relacionamentos é opicional;
+    - Não utilizamos queries e sim métodos de classes para trabalhar com os dados;
+    - As tabelas não existem, temos as collections;
+    - Não precisamos definir a estrutura da collection previamente;
+    - MongoDB é um banco NoSQL;
+O que é MongoDB?
+    - Um banco de dados orientado a documento;
+    - Os dados ficam salvos em estruturas parecidas com JSON;
+    - Frequentemente utilizado com Node.js;
+    - Diferente do SQL temos índices primários e secundários;
+    - Utilizamos um driver para conectar a nossa aplicação com o MongoDB, semelhante ao MySQL e Sequelize;
+Instalação MongoDB Windows
+    - Vamos precisar instalar duas ferramentas no Windows;
+    - MongoDB, que é o sistema do banco de dados;
+    - MongoDB tools, ferramenta para importação e exportação de bancos;
+    - As duas possuem instaladores e estes estão disponíveis na documentação oficial;
+Instalação do CMDER
+    - O cmder é um simulador do terminal para Windows, que deixa o terminal bem parecido com o do Linux, o que é interessante para o curso;
+    - Este software será escolhido para as aulas, então é sugerido fazer a instalação;
+    - Lembrando que a maioria dos servidores de aplicações é Linux, então isso é vantajoso para você também;
+Variáveis PATH
+    - Para poder executar o MongoDB no terminal, precisamos inserir variáveis PATH;
+    - Vamos colocar os binários tanto do MongoDB como do tools, para ter acesso as duas ferramentas;
+Principais entidades
+    - Database: é onde ficam as nossas collections e dados;
+    - Collections: são como as tabelas nos bancos relacionais, nelas vamos inserir os dados;
+    - Documents: são os dados, no MongoDB tem esta nomenclatura;
+    - Collections podem ser criadas livremente a qualquer momento e não possuem colunas fixas para os dados;
+MongoDB e JSON
+    - O tipo de dado inserido na tabela é o BSON, uma variação de JSON;
+    - O BSON é semelhante ao JSON, porém com recursos a mais;
+    - A forma de criar um BSON é igual ao JSON, veja:
+    {
+        nome: "Igor",
+        idade: 23
+    }
+Primeiro mergulho
+    - Vamos agora dar o nosso primeiro mergulho no MongoDB;
+    - Nossa missão será criar um banco de dados;
+    - Criar ua collection;
+    - Inserir um dado e resgatar este mesmo dado por meio de um find;
+        1. No CMDER digite: "mongosh" para entrar no shell do MongoDB
+        2. "show dbs" mostra os bancos de dados
+        3. "use primeirobanco" comando para criar um banco de dados
+        4. "db.primeiracollection.insertOne({ nome: "Igor", idade: 23 })" cria uma collection com os documents nome e idade no db em utilizamos
+        5. Automaticamente será criado um id único no collection
+        6. "db.primeiracollection.findOne({ })" encontrar um document
+Conectando ao MongoDB
+    - Primeiramente vamos precisar instalar o driver do MongoDB, que é mongodb (um pacote de npm);
+        "npm install express express-handlebars mongodb nodemon"
+    - Depois criaremos a conexão, baseada em uma URL com o protocolo mongodb://
+    - Através da classe MongoClient
+Criando MVC
+    - Antes de trabalhar com MongoDB vamos criar uma estrutura MVC;
+    - Isso vai fortalecer nossos conhecimentos com a arquitetura;
+    - E também poderemos comparar o trabalho com SQL x NoSQL;
+Inserindo dados
+    - Primeiramente vamos criar um Model, onde este será uma classe de JavaScript, para seguir o MVC;
+    - Depois utilizamos o Model para criar o método save, que executa o insertOne de MongoDB;
+    - Por fim é necessário criar o formulário que interage com a rota do sistema;
+Resgatando dados
+    - Para resgatar os dados de uma collection vamos utilizar o método find de MongoDB;
+    - Os dados vem em um cursos, para converter em array utilizamos toArray;
+    - Depois é só passar os dados para o controller e exibir na view;
+Resgatando um dado
+    - Para resgatar um dado vamos utilizar o método findOne;
+    - Onde podemos filtrar por um campo, que no nosso caso vai ser o _id;
+    - Vamos enviar o dado para o Controller e depois para a View;
+Removendo dados
+    - Para remover um dado do banco, vamos utilizar o método deleteOne;
+    - Que recebe um filtro como nó de resgatar dados, utilizaremos o campo _id;
+    - Basta executar o método no Controller e redirecionar após a remoção;
+Editar dado - formulário
+    - Para editar um dado, primeiramente vamos criar uma view que mostra o formulário preenchido;
+    - A ideia é parecida com a de getProduct do nosso projeto;
+    - Vamos utilizar o atributo value do input para preencher o campo com o valor salvo;
+Editar dado - salvando
+    - Para salvar um dado editado será necessário criar um método no Model;
+    - Que utiliza o método updateOne do MongoDB;
+    - Onde passamos o id e também os dados para atualizar;
+    - Criaremos também uma função no Controller e a rota;

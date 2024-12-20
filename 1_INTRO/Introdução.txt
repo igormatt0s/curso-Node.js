@@ -1,0 +1,18 @@
+Node.js
+	- É uma runtime de JavaScript, ou seja, uma biblioteca utilizada por um compilador durante a execução do programa
+	- Está construída na V8 engine (escrita em C++) da Google para garantir alta performance
+	- Cria software em JS no lado do servidor
+NPM
+	- É um gerenciador de pacotes do Node
+	- Pode-se utilizar bibliotecas de terceiros, baixando elas pelo npm, e também executar determinados scripts no programa
+	- Os módulos externos ficam na pasta node_modules
+Intalação Node
+	- Baixar arquivo .msi no site nodejs.org
+	- Testar a instalação no terminal: node -v e npm -v
+	- Os binários devem estar no PATH
+		Variáveis de Ambiente
+		Path
+		Criar o caminho do node
+Executando o Node
+	- No terminal,basta digitar node
+	- Para executar um arquivo .js é só colocar node <arquivo>

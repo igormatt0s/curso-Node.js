@@ -1,0 +1,8 @@
+npm install bcryptjs connect-flash cookie-parser cookie-session express express-flash express-session mysql2 sequelize nodemon session-file-store express-handlebars
+
+Módulos utilizados nesse projeto:
+    - bcryptjs: gera a senha criptografando e descriptografando as senhas
+    - connect-flash: utilizado para flash messages
+    - cookie-session: mantém uma sessão na máquina do cliente para o programa entender que o usuário esta logado
+    - express-session: corresponde a autenticação mais simples do express
+    - session-file-store: pacote de session para salvar sessões em arquivos e mantê-las persistindo a autenticação do usuário

@@ -1,0 +1,36 @@
+NPM
+	- É o principal gerenciador de pacotes do Node.js
+	- Além de instalar pacotes, pode-se configurar o projet e rodar scripts
+	- A criação de um projeto gera sempre um arquivo package.json
+	- Para criar um projeto: npm init ou de forma rápida npm init -y (dando sim para todas as perguntas e se necessário é só mudar no package.json)
+Instalando um pacote
+	- npm install <nome>
+	- Na pasta node_modules criada são armazenados todos os arquivos de módulos de terceiros
+	- Em outros computadores, quando se baixa o repositório (já que a pasta node_modules não é enviada), deve-se rodar primeiro: npm install e depois o node index.js ou npm start
+	- Para encontrar o nome dos pacotes só acessar o npmjs.com
+Instalando um pacote como dev
+	- Instala pacotes apenas para o ambiente de desenvolvimento, por meio da flag: --save-dev
+	- Para instalar as dependencias: npm install --save-dev <nome do pacote>
+	- O módulo fica separado no package.json dos demais
+Atualização de pacotes
+	- npm update ou npm update <nome> para atualizar os pacotes instalados no package.json
+	- Alterar uma versão de um pacote: No package.json altera para a versão desejada, apague a pasta node_modules atual e depois dá o comando npm install
+	- Executador de pacotes do Node para verificar se alguma dependencia precisa de atualização: npx npm-check-updates -u
+Criando scripts
+	- Scripts são rotinas que possibilitam executar uma série de comandos com apenas um
+	- npm run <script>, onde <script> é o nome da sequência de comando que configuramos
+	- No package.json eu posso adicionar o script start:
+		""scripts": {
+    			"test": "echo \"Error: no test specified\" && exit 1",
+    			"start": "node index.js"
+  		},"
+	  e no terminal eu coloco npm run start
+Instalando pacote global
+	- Um pacote global fica salvo no computador do usuário e não na pasta node_modules do projeto
+	- Utiliza-se a flag -g no comando: node install -g <nome>
+Executando scripts com npx
+	- Alguns pacotes são scripts executáveis, que resultam em alguma ação no nosso computador, e os processos podem ser simplificados por esse executador
+	- Exemplo: npx cowsay "Hello World!" ou npx cowsay -d "Morri!"
+Remover pacote com npm
+	- npm uninstall <nome>
+	- O pacote será removido do package.json também

@@ -1,0 +1,64 @@
+O que são bancos relacionais?
+	- Entidades em bancos relacionais:
+		- Banco de dados: Um banco para guardar os dados do projeto
+		- Tabelas: Onde categorizamos os dados e os inserimos
+		- Colunas: Onde separamos os dados em uma tabela
+		- Dados: O que é inserido, modificado, atualizado e removido em uma tabela
+		- Relacionamentos: Ligações entre as tabelas
+O que é MySQL?
+	- É um SGBD (Sistema Gerenciador de Banco de Dados) que trabalha com bancos relacionais
+	- É necessário instalar o software e deixar-lo em execução para que o Node possa se conectar aos bancos que temos disponíveis
+MySQL no terminal
+	- Precisa baixar o MySQL pelo XAMPP
+	- Precisa adicionar o executavel do MySQL as variáveis de ambiente
+	- Para conectar no MySQL digite: mysql -u root
+Integraçaõ do MySQL e Node.js
+	- Instale com o npm o driver que é um pacote chamado mysql (npm install mysql)
+	- Crie o banco de dados pelo Workbench
+	- Depois conecte ao nosso banco de dados
+			const conn = mysql.createConnection({
+    			host: 'localhost',
+    			user: 'root',
+    			password: '',
+    			database: 'nodemysql',
+			})
+
+			conn.connect(function (err) {
+    			if(err){
+        			console.log(err)
+    			}
+    
+    			console.log('Conectou ao MySQL com sucesso!')
+
+    			app.listen(3000)
+			})
+	- Insira informações como: host, user, password e o banco
+Criando a nossa tabela
+	- Via Workbench crie uma tabela para cadastrar algo
+Inserindo dados
+	- Para inserir dados no bd é necessário criar e executar uma query
+	- A query é uma string, seguindo os padrões do MySQL
+	- Para executar utilize o método query do pacote mysql
+	- Utilize a instrução INSERT para inserir dados
+Resgatando os dados
+	- Criar uma query com o SELECT, escolhendo qusi dados são retornados por meio das Colunas
+	- Pode-se imprimir os dados nas views
+Resgatando os dados específicos
+	- Utiliza o WHERE para filtrar por uma coluna e um valor
+Editar dados primeiro passo
+	- Primeiro resgata dados e preenche-se o formulário com os dados resgatados
+	- O usuário lembra dos dados cadastrados e escolhe o que Editar
+Finalizando a edição
+	- Criar uma nova rota como POST
+	- Facer uma query de UPDATE para processar a atualização, passando o id neste formulário
+Remover itens
+	- Utiliza a query DELETE
+	- Precisa-se enviar para a rota um POST com o id do item a ser removido
+Connection Pool
+	- Connection Pool é um recurso para otimizar as conexões, criando um cache e permitindo sua reutilização
+	- O driver mysql tem este recurso desenvolvido
+	- Este recurso também controla as conexões abertas, fechando assim que se tornam inativas
+Preparando a query
+	- Utiliza-se interrogações em vez dos valores para se defender de SQL Injection
+	- Substituição atráves de um segundo passo, para a query ser executada corretamente
+	- Essa técnica deve ser utilizada em qualquer programa que vá para a produção

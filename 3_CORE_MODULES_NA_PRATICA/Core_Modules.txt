@@ -1,0 +1,31 @@
+Sobre Core Modules
+	- Fundamentais para criação de softwares em Node
+		- http: módulo para criar servidores HTTP
+		- path: extrair informações de path de arquivos
+		- fs: file systems, litura e escrita de arquivos
+		- url: módulo para trabalhar com URLs
+Módulo http
+	- Recebe uma requisição e envia código HTML como resposta
+	- Utiliza alguns métodos como createServer (criação do servidor) e o listen (determinar a porta)
+	- Para retornar HTML pode-se adicionar o statusCode, mudar os headers para text/html e retornar pelo método end do http
+Módulo url
+	- Serve para decompor uma URL que passamos para o método parse
+	- Pode-se resgatar: host, path, search, query e etc
+Unindo os módulos http e url
+	- Com o http criamos o server e alteramos a resposta baseada na URL acessada
+	- Com url processamos os parâmetros que vem pela query string, para alterar a lógica do http
+Módulo fs
+	- File system serve para trabalhar com arquivos e diretórios, podendo ler e escrever em arquivos ou ver logs do sistema
+	- Pode-se criar e escrever em arquivos com o método writeFile, podendo enviar inforações de um usuário
+	- Para atualizar um arquivo usa-se o método appendFile
+	- Para remover um arquivo usa-se o método unlink passando o arquivo como parâmetro, sendo possível checar os erros a partir da callback retornada
+	- Para renomear um arquivo usa-se o método rename passando o arquivo e o novo nome como parâmetro, sendo possível checar os erros a partir da callback retornada
+	- Para saber detalhes de arquivos (como tamanho, data de criação, se é arquivo ou diretório) usa-se o método stat
+	- Pode-se evidenciar se um diretório existe ou não com o método exists
+	- Pode-se criar um diretório com o método mkdir
+Módulo path
+	- Pode-se extrair informações sobre caminhos e arquivos, como: nome do diretório, nome do arquivo, extensão e etc
+	- Pode-se saber qual o path completo até o arquivo alvo com a função resolve
+	- Pode-se formar um path dinâmico, com variáveis e valores fixos com a função join
+Modulo os
+	- Pode-se extrair informações do sistema operacional

@@ -1,0 +1,54 @@
+Ver a versão:
+    npm -v
+    node -v
+Criando projetos rapidamente:
+    npm init -y
+Configurando módulo:
+    Configurando o nome do autor: npm config set init-author-name Igor
+    Configurando o email do autor: npm config set init-author-email igor@teste.com
+    Configurando a licença: npm config set init-license MIT
+    Cria o projeto com essas configurações: npm init - y
+Exibindo as configurações do npm:
+    npm get
+Deletando valores de configuração
+    Deletar a url do autor por exemplo: npm config delete author-init-url
+Instalação de módulo global
+    Instalando request global: npm install request -g
+    npm link request
+    node index.js
+Removendo módulos globais
+    npm remove request -g
+Listando módulos instalados
+    Listar todas as dependências: npm list OU npm ls
+    Listar as principais dependências: npm list --degth=0
+    Listar todas as dependências globais: npm list -g
+    Listar as principais dependências globais: npm list -g --degth=0
+Limpando dependências não utilizadas
+    Apaga a linha com o módulo inutilizado em dependencies no package.json
+    npm prune
+Procurando módulos pelo terminal
+    Sabendo o nome do módulo: npm search react
+    Não sabendo o nome: npm serach test
+    npm serach ajax
+Verificando dependências que podem ser atualizadas
+    npm outdated
+    npm update
+Verificando e limpando cache do npm
+    npm cache verify
+    npm cache clean --force
+Identificando vulnerabilidades
+    npm audit
+Corrigindo vulnerabilidade dos pacotes
+    npm audit fix OU npm audit fix --force
+Conhecendo pacotes com npm view
+    Todas as informações doreact, por exemplo: npm view react
+Acessando documentação do pacotes
+    Abrindo o navegador com a documentação do JQuery, por exemplo: npm docs jquery
+Home pages do pacote
+    npm home react
+Reduzindo duplicação de pacotes
+    npm dedupe OU npm ddp
+Instalando pacotes sem salvar nas dependências
+    npm install axios --no-save
+Verificando scripts do projeto
+    npm run

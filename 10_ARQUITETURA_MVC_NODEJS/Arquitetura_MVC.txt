@@ -1,0 +1,73 @@
+O que é MVC?
+    - Um acrônimo de Model View Controller
+    - É um padrão de arquitetura de software, que pode deixar nossas aplicações mais organizadas
+    - A aplicação é dividida em camadas, cada um com sua responsabilidade
+    - Teremos uma nova estrutura de arquivos e pastas
+    - E a aplicação obedece um novo fluxo, que se repete para todas as aplicações
+    - Aplicações em MVC tendem a ter uma manutenção/evolução mais fácil
+Camada do Modelo (Model)
+    - É uma camada onde vamos interagir com o banco de dados
+    - Normalmente interage com os arquivos do Controller
+    - Responsável por resgatar, atualizar, remover e criar dados
+    - É comum que cada tabela seja um Model, assim como fazemos com o setup do Sequelize
+    - Os Models são quem controlam a arquitetura do sistema, é fácil entender a regra de negócios analisando eles
+Camada de Visualização (View)
+    - É onde apresentamos os dados que estão no banco
+    - Geralmente a view interage com o Controller, que é o meio de campo
+    - E também nas views temos a interação com o usuário, como formulários para inserir dados no sistema
+    - É correto não haver lógica/regra de negócios na view, ou o mínimo possível
+    - Normalmente a exibição é feita através do HTML
+Camada de Controle (Controller)
+    - É onde temos a interação entre Model e View
+    - Podemos definir qual view será impressa, processar dados que foram enviados para o banco ou para a view
+    - Os Controllers terão um código parecido com os das rotas
+Nossa estrutura com MVC
+    - Nossa estrutura será composta por:
+        # controllers: pasta que ficam os arquivos de Controller
+        # models: pasta que ficam os arquivos de Model
+        # views: pasta que ficam os arquivos de View
+        # routes: pasta que ficam os arquivos de rotas
+        # index.js: arquivo que inicializa a aplicação
+Criando o Model
+    - Vamos criar nosso Model dentro da pasta models
+    - Precisamos também sincronizar para criar a tabela, então vamos importar no index.js
+    - Este é o primeiro passo do nosso MVC, declarando uma entidade que faz parte da regra de negócios
+Criando o Controller
+    - Vamos agora criar nosso Controller, que ficará dentro da pasta controllers
+    - Será uma classe que contém as funções com a lógica de cada rota
+    - Algumas só encaminharão as views, outras vão processar dados e passar para os Models
+    - Por isso vamos importar o Model que o controller utiliza
+Criando as Rotas
+    - Criaremos as rotas com ajuda do router
+    - Onde cada arquivo será responsável por um controller
+    - E em cada rota vamos utilizar uma das funções do Controller
+    - Por isso vamos importar o controller responsável pela lógica das rotas
+    - O router precisa ser importado no index da aplicação
+Salvando dados
+    - Agora é a hora de interagir com o banco
+    - Ou seja, criar um vínculo entre um Controller e um Model
+    - Criaremos uma nova função para tratar os dados e enviaremos para o banco
+    - Como o Sequelize tem alguns métodos prontos, o trabalho do nosso Model fica mais simples
+Resgatando dados
+    - Para resgatar dados o processo é semelhante
+    - Vamos criar uma rota get que acessa uma função do Controller
+    - Nesta função trataremos os dados através do Model
+    - E assim podemos imprimir no HTML
+Removendo dados
+    - Para remover um dado vamos utilizar o método destroy do Sequelize
+    - Condicionado por um POST que vai até a rota determinada pelo router
+    - Ativando uma função do Controller
+    - E depois direcionamos para a home novamente
+Editando dados
+    - O primeiro passo da edição nós já sabemos: resgatar dado e colocar no formulário em uma nova view
+    - Para isso vamos precisar de uma função no Controller, pegando os dados via Model
+    - E então criar a rota que corresponde a um id de uma Task, neste caso
+    - Preenchendo os valores dos input com o que foi resgatado do banco
+    - Agora no passo final, precisamos enviar os dados
+    - Vamos criar uma nova função no Controller que processa o que veio do form
+    - Esta mesma função chama o Model e executa a função de update
+    - Retornando assim o usuário para onde ele possa ver a Task atualizada
+Completando tarefas
+    - Realizaremos uma ação do nosso sistema para completar ou "descompletar" as tarefas
+    - Basicamente vamos criar uma rota de update que só atualiza o atributo done de Task
+    - Precisamos de um form na lista para fazer o envio e também criar a rota

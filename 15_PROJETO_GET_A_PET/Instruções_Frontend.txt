@@ -1,0 +1,9 @@
+- Foi utilizado React na parte do Frontend, usando o comando no terminal "npx create-react-app ." (o ponto é para criar no diretório atual)
+- Pode dar um "npm start" para ver a aplicação no navegador
+- Precisou-se instalar alguns pacotes "npm install axios events react-icons react-router-dom" (axios: para a conexão com a API, events: para enviar mensagens entre componentes, react-router-dom: permite o roteamento de páginas)
+- .env.local terá uma variável de ambiente para usar na aplicação
+- A estrutura de pastas fica em src
+- A arquitetura do React é baseada em componentes, então faz-se necessário a separação das partes da páginas em components que serão reutilizáveis
+- O React tem um recurso chamado contexto (context) onde são passadas algumas variáveis e elas ficarão disponíveis em algumas partes da aplicação
+- Hooks (ganchos) facilitam na utilização de flash messages, por exemplo, em vários lugares
+- Utils são como os helpers que contem códigos que possam ser utilizados em partes da aplicação
